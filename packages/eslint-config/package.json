@@ -1,0 +1,48 @@
+{
+  "name": "@mcous/eslint-config",
+  "version": "0.1.0",
+  "description": "My base ESLint configuration.",
+  "type": "commonjs",
+  "exports": {
+    "types": "./dist/base.d.ts",
+    "default": "./dist/base.js"
+  },
+  "main": "./dist/base.js",
+  "types": "./dist/base.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup src/base.ts --clean --sourcemap --dts --format cjs --out-dir dist"
+  },
+  "keywords": [
+    "eslint-config"
+  ],
+  "author": "Michael Cousins <michael@cousins.io> (https://mike.cousins.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcous/js.git",
+    "directory": "packages/eslint-config"
+  },
+  "bugs": {
+    "url": "https://github.com/mcous/js/issues"
+  },
+  "homepage": "https://github.com/mcous/js/tree/main/packages/eslint-config#readme",
+  "eslintConfig": {
+    "rules": {
+      "unicorn/prefer-module": "off"
+    }
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=5.0.0 <6",
+    "@typescript-eslint/parser": ">=5.0.0 <6",
+    "eslint": ">=8.0.0 <9",
+    "eslint-config-prettier": ">=8.0.0 <9",
+    "eslint-plugin-n": ">=16.0.0 <17",
+    "eslint-plugin-promise": ">=6.0.0 <7",
+    "eslint-plugin-sonarjs": ">=0.19.0 <0.20.0",
+    "eslint-plugin-unicorn": ">=47.0.0 <48"
+  }
+}

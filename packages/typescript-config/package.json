@@ -1,0 +1,33 @@
+{
+  "name": "@mcous/typescript-config",
+  "version": "0.1.0",
+  "description": "My base TypeScript configuration.",
+  "type": "module",
+  "exports": {
+    ".": "./base.json",
+    "./base.json": "./base.json"
+  },
+  "main": "./base.json",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {},
+  "keywords": [
+    "tsconfig"
+  ],
+  "author": "Michael Cousins <michael@cousins.io> (https://mike.cousins.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcous/js.git",
+    "directory": "packages/typescript-config"
+  },
+  "bugs": {
+    "url": "https://github.com/mcous/js/issues"
+  },
+  "homepage": "https://github.com/mcous/js/tree/main/packages/typescript-config#readme",
+  "peerDependencies": {
+    "typescript": ">=5.0.0 <6"
+  }
+}

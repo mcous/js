@@ -1,0 +1,30 @@
+name: Set up Node.js and pnpm
+description: Install Node.js and pnpm
+
+inputs:
+  node-version:
+    description: Node.js version to install
+    default: '18'
+  registry-url:
+    description: Registry to configure for publish
+  run-install:
+    description: Run pnpm install
+    default: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@c3b53f6a16e57305370b4ae5a540c2077a1d50dd
+
+    - name: Install Node.js ${{ inputs.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: ${{ inputs.registry-url }}
+        cache: pnpm
+
+    - if: ${{ fromJSON(inputs.run-install) }}
+      name: Install dependencies
+      shell: bash
+      run: pnpm install

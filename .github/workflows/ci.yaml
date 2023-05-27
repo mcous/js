@@ -1,0 +1,70 @@
+name: Continuous integration
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: pnpm run all
+      - uses: actions/upload-artifact@v3
+        with:
+          name: publish-artifact
+          path: packages/*/dist
+
+  publish:
+    if: ${{ github.event_name == 'push' && github.repository == 'mcous/js' && github.ref == 'refs/heads/main' }}
+    needs: [check]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    outputs:
+      report: ${{ steps.publish-report.outputs.report }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+        with:
+          registry-url: https://registry.npmjs.org
+          run-install: false
+      - uses: actions/download-artifact@v3
+        with:
+          name: publish-artifact
+          path: packages
+      - run: pnpm publish --recursive --report-summary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - id: publish-report
+        run: |
+          echo "report<<EOF" >> "$GITHUB_OUTPUT"
+          cat pnpm-publish-summary.json >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+  release:
+    needs: [publish]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const { sha: target_commitish } = context
+            const { repo, owner } = context.repo
+            const publishReport = JSON.parse(`${{ needs.publish.outputs.report }}`)
+
+            for (const { name, version } of publishReport.publishedPackages) {
+              const tag_name = `${name}@${version}`
+              github.rest.repos.createRelease({ owner, repo, tag_name, target_commitish })
+            }
