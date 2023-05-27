@@ -19,7 +19,7 @@ Use the [base config](./base.cjs) for React, Vue, and vanilla JavaScript / TypeS
 // .prettierrc.cjs
 'use strict'
 
-module.exports = '@viamrobotics/prettier-config'
+module.exports = '@mcous/prettier-config'
 ```
 
 You can also extend the configuration:
@@ -28,7 +28,7 @@ You can also extend the configuration:
 // .prettierrc.cjs
 'use strict'
 
-const baseConfig = require('@viamrobotics/prettier-config')
+const baseConfig = require('@mcous/prettier-config')
 
 module.exports = {
   ...baseConfig,
