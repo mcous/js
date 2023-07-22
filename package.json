@@ -23,6 +23,9 @@
     "ignorePatterns": "dist",
     "parserOptions": {
       "project": "./packages/*/tsconfig.json"
+    },
+    "rules": {
+      "unicorn/no-empty-file": "off"
     }
   },
   "dependencies": {

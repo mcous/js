@@ -32,13 +32,12 @@
   "homepage": "https://github.com/mcous/js/tree/main/packages/eslint-config#readme",
   "eslintConfig": {
     "rules": {
-      "unicorn/no-empty-file": "off",
       "unicorn/prefer-module": "off"
     }
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=5.0.0 <6",
-    "@typescript-eslint/parser": ">=5.0.0 <6",
+    "@typescript-eslint/eslint-plugin": ">=5.0.0 <7",
+    "@typescript-eslint/parser": ">=5.0.0 <7",
     "eslint": ">=8.0.0 <9",
     "eslint-config-prettier": ">=8.0.0 <9",
     "eslint-plugin-n": ">=16.0.0 <17",

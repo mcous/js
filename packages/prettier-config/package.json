@@ -32,7 +32,6 @@
   "homepage": "https://github.com/mcous/js/tree/main/packages/prettier-config#readme",
   "eslintConfig": {
     "rules": {
-      "unicorn/no-empty-file": "off",
       "unicorn/prefer-module": "off"
     }
   },
