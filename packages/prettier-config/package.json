@@ -1,6 +1,6 @@
 {
   "name": "@mcous/prettier-config",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "My base Prettier configuration.",
   "type": "commonjs",
   "exports": {
@@ -14,7 +14,7 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsup src/base.ts --clean --sourcemap --dts --format cjs --out-dir dist"
+    "build": "tsc"
   },
   "keywords": [
     "prettier-config"
@@ -32,10 +32,11 @@
   "homepage": "https://github.com/mcous/js/tree/main/packages/prettier-config#readme",
   "eslintConfig": {
     "rules": {
+      "unicorn/no-empty-file": "off",
       "unicorn/prefer-module": "off"
     }
   },
   "peerDependencies": {
-    "prettier": ">=2.0.0 <3"
+    "prettier": ">=2.0.0 <4"
   }
 }

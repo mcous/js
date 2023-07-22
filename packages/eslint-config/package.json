@@ -1,6 +1,6 @@
 {
   "name": "@mcous/eslint-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "My base ESLint configuration.",
   "type": "commonjs",
   "exports": {
@@ -14,7 +14,7 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsup src/base.ts --clean --sourcemap --dts --format cjs --out-dir dist"
+    "build": "tsc"
   },
   "keywords": [
     "eslint-config"
@@ -32,6 +32,7 @@
   "homepage": "https://github.com/mcous/js/tree/main/packages/eslint-config#readme",
   "eslintConfig": {
     "rules": {
+      "unicorn/no-empty-file": "off",
       "unicorn/prefer-module": "off"
     }
   },
@@ -43,6 +44,6 @@
     "eslint-plugin-n": ">=16.0.0 <17",
     "eslint-plugin-promise": ">=6.0.0 <7",
     "eslint-plugin-sonarjs": ">=0.19.0 <0.20.0",
-    "eslint-plugin-unicorn": ">=47.0.0 <48"
+    "eslint-plugin-unicorn": ">=47.0.0 <49"
   }
 }
