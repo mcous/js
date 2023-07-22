@@ -1,5 +1,3 @@
-'use strict'
-
 const config = {
   parserOptions: {
     sourceType: 'module',
@@ -18,4 +16,4 @@ const config = {
   ],
 } as const
 
-module.exports = config
+export = config

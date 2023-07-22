@@ -2,7 +2,7 @@
   "extends": "@mcous/typescript-config/base.json",
   "compilerOptions": {
     "types": ["node"],
-    "module": "commonjs",
+    "module": "node16",
     "target": "es2021",
     "declaration": true,
     "sourceMap": true,
