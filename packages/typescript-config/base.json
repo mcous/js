@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    // use import/export and legacy node resolution logic
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    // allow importing JSON files
     "resolveJsonModule": true,
 
     // Bundler compatibility

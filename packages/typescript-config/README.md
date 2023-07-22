@@ -13,11 +13,14 @@ npm install --save-dev @mcous/typescript-config typescript
 
 ## Usage
 
-Use the [base config](./base.json) for generic TypeScript projects, including code that runs natively in Node.js or isomorphicaly, in both Node.js and the browser.
+Use the [base config](./base.json) for generic TypeScript projects, including code that runs natively in Node.js or isomorphically, in both Node.js and the browser.
 
 ```jsonc
 // tsconfig.json
 {
-  "extends": "@mcous/typescript-config/base.json"
+  "extends": "@mcous/typescript-config/base.json",
+  "compilerOptions": {
+    // ...project specific options, like `module` and `target`
+  }
 }
 ```

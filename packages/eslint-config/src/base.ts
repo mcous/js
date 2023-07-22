@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = {
+const config = {
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 'latest',
@@ -16,4 +16,6 @@ module.exports = {
     'plugin:unicorn/recommended',
     'prettier',
   ],
-}
+} as const
+
+module.exports = config
