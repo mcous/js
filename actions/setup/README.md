@@ -1,6 +1,6 @@
 # mcous/js/actions/setup
 
-Install Node, pnpm, and dependencies with caching.
+Install Node, pnpm, and dependencies with caching in a GitHub Actions workflow of a JS project.
 
 ## Usage
 
