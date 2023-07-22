@@ -1,6 +1,11 @@
 # @mcous/js
 
-[My][@mcous] common configurations for JavaScript and TypeScript tools:
+[My][@mcous] common configurations and [GitHub Actions][] for JavaScript and TypeScript projects:
+
+[@mcous]: https://github.com/mcous
+[GitHub Actions]: https://docs.github.com/en/actions/creating-actions/about-custom-actions
+
+## Tool Configurations
 
 | Tool                          | NPM Module                 | Version                                   |
 | ----------------------------- | -------------------------- | ----------------------------------------- |
@@ -8,7 +13,6 @@
 | [Prettier][prettier docs]     | `@mcous/prettier-config`   | [![prettier version][]][prettier npm]     |
 | [TypeScript][typescript docs] | `@mcous/typescript-config` | [![typescript version][]][typescript npm] |
 
-[@mcous]: https://github.com/mcous
 [eslint docs]: ./packages/eslint-config
 [eslint npm]: https://www.npmjs.com/package/@mcous/eslint-config
 [eslint version]: https://img.shields.io/npm/v/@mcous/eslint-config?style=flat-square
@@ -18,6 +22,14 @@
 [typescript docs]: ./packages/typescript-config
 [typescript npm]: https://www.npmjs.com/package/@mcous/typescript-config
 [typescript version]: https://img.shields.io/npm/v/@mcous/typescript-config?style=flat-square
+
+## Actions
+
+| Action                     | Description              |
+| -------------------------- | ------------------------ |
+| [mcous/js/actions/setup][] | Install Node.js and pnpm |
+
+[mcous/js/actions/setup]: ./actions/setup
 
 ## Contributing
 
