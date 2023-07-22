@@ -1,5 +1,5 @@
-name: Set up Node.js and pnpm
-description: Install Node.js, pnpm, and project dependencies.
+name: Set up Node
+description: Install Node, pnpm, and dependencies with caching
 
 inputs:
   node-version:

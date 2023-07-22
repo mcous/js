@@ -25,11 +25,11 @@
 
 ## Actions
 
-| Action                     | Description              |
-| -------------------------- | ------------------------ |
-| [mcous/js/actions/setup][] | Install Node.js and pnpm |
+| Action                    | Path                     | Description                                       |
+| ------------------------- | ------------------------ | ------------------------------------------------- |
+| [Set up Node][setup docs] | `mcous/js/actions/setup` | Install Node, pnpm, and dependencies with caching |
 
-[mcous/js/actions/setup]: ./actions/setup
+[setup docs]: ./actions/setup
 
 ## Contributing
 

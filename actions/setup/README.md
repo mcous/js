@@ -1,6 +1,6 @@
 # mcous/js/actions/setup
 
-Install Node.js, pnpm, and project dependencies.
+Install Node, pnpm, and dependencies with caching.
 
 ## Usage
 
