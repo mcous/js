@@ -1,8 +1,8 @@
 {
   "name": "@mcous/prettier-config",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "My base Prettier configuration.",
-  "type": "commonjs",
+  "type": "module",
   "exports": {
     "types": "./dist/base.d.ts",
     "default": "./dist/base.js"
@@ -30,12 +30,7 @@
     "url": "https://github.com/mcous/js/issues"
   },
   "homepage": "https://github.com/mcous/js/tree/main/packages/prettier-config#readme",
-  "eslintConfig": {
-    "rules": {
-      "unicorn/prefer-module": "off"
-    }
-  },
   "peerDependencies": {
-    "prettier": ">=2.0.0 <4"
+    "prettier": ">=3.0.0 <4"
   }
 }

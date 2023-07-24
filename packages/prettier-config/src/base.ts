@@ -1,6 +1,8 @@
+import type { Config } from 'prettier'
+
 const config = {
   semi: false,
   singleQuote: true,
-} as const
+} satisfies Config
 
-export = config
+export default config
