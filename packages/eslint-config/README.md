@@ -22,7 +22,6 @@ npm install --save-dev \
   @typescript-eslint/parser \
   eslint \
   eslint-config-prettier \
-  eslint-plugin-n \
   eslint-plugin-promise \
   eslint-plugin-sonarjs \
   eslint-plugin-unicorn
