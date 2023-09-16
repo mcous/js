@@ -25,7 +25,7 @@ npm install --save-dev \
   eslint-plugin-n \
   eslint-plugin-promise \
   eslint-plugin-sonarjs \
-  eslint-plugin-unicorn \
+  eslint-plugin-unicorn
 ```
 
 ## Usage

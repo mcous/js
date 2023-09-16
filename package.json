@@ -15,7 +15,7 @@
   "keywords": [],
   "author": "Michael Cousins <michael@cousins.io> (https://mike.cousins.io)",
   "license": "MIT",
-  "packageManager": "pnpm@8.6.9",
+  "packageManager": "pnpm@8.7.5+sha224.88eb61412f45341f5e2950a8a858a4d509694e32fd8d214be659ba5e",
   "prettier": "@mcous/prettier-config",
   "eslintConfig": {
     "root": true,
@@ -34,16 +34,16 @@
     "@mcous/typescript-config": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.4.4",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-n": "^16.0.1",
+    "@types/node": "^20.6.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-sonarjs": "^0.19.0",
-    "eslint-plugin-unicorn": "^48.0.0",
-    "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
+    "eslint-plugin-sonarjs": "^0.21.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }

@@ -13,6 +13,16 @@ const config = {
     'plugin:unicorn/recommended',
     'prettier',
   ],
+  rules: {
+    'unicorn/prevent-abbreviations': [
+      'error',
+      {
+        allowList: {
+          props: true,
+        },
+      },
+    ],
+  },
   overrides: [
     {
       files: '**/*.cjs',
