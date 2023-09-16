@@ -16,21 +16,17 @@ npm install --save-dev @mcous/prettier-config prettier
 Use the [base config](./base.cjs) for React, Vue, and vanilla JavaScript / TypeScript projects.
 
 ```js
-// .prettierrc.cjs
-'use strict'
-
-module.exports = '@mcous/prettier-config'
+// prettier.config.js
+export default '@mcous/prettier-config'
 ```
 
 You can also extend the configuration:
 
 ```js
-// .prettierrc.cjs
-'use strict'
+// prettier.config.js
+import baseConfig from '@mcous/prettier-config'
 
-const baseConfig = require('@mcous/prettier-config')
-
-module.exports = {
+export default {
   ...baseConfig,
   // other options here
 }
