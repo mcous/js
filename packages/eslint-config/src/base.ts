@@ -13,13 +13,14 @@ const config = {
     'prettier',
   ],
   rules: {
+    '@typescript-eslint/no-confusing-void-expression': [
+      'error',
+      { ignoreArrowShorthand: true },
+    ],
+    'unicorn/no-useless-undefined': 'off',
     'unicorn/prevent-abbreviations': [
       'error',
-      {
-        allowList: {
-          props: true,
-        },
-      },
+      { allowList: { props: true, args: true, TFunc: true, TArgs: true } },
     ],
   },
   overrides: [
@@ -27,6 +28,12 @@ const config = {
       files: '**/*.cjs',
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      files: '**/__tests__/**',
+      rules: {
+        'sonarjs/no-duplicate-string': 'off',
       },
     },
   ],
