@@ -17,10 +17,18 @@ const config = {
       'error',
       { ignoreArrowShorthand: true },
     ],
+    'unicorn/no-array-callback-reference': 'off',
     'unicorn/no-useless-undefined': 'off',
     'unicorn/prevent-abbreviations': [
       'error',
-      { allowList: { props: true, args: true, TFunc: true, TArgs: true } },
+      {
+        allowList: { TFunc: true, TArgs: true },
+        replacements: {
+          args: { arguments: false },
+          params: { parameters: false },
+          props: { properties: false },
+        },
+      },
     ],
   },
   overrides: [
@@ -32,7 +40,9 @@ const config = {
     },
     {
       files: '**/__tests__/**',
+      extends: ['plugin:vitest/recommended'],
       rules: {
+        '@typescript-eslint/no-non-null-assertion': 'off',
         'sonarjs/no-duplicate-string': 'off',
       },
     },

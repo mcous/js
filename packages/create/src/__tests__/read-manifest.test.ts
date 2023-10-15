@@ -31,7 +31,7 @@ describe('readManifest', () => {
   it('should return undefined if manifest does not exist', async () => {
     const result = await subject.readManifest(directory)
 
-    expect(result).toBe(undefined)
+    expect(result).toBeUndefined()
   })
 
   it('should throw other errors', async () => {

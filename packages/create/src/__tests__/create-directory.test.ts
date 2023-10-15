@@ -22,7 +22,7 @@ describe('createDirectory', () => {
     const result = await subject.createDirectory('./path', { workingDirectory })
 
     expect(result).toBe(path.join(workingDirectory, 'path'))
-    await expect(fs.access(result)).resolves.toEqual(undefined)
+    await expect(fs.access(result)).resolves.toBeUndefined()
   })
 
   it('should allow a directory that already exists', async () => {
@@ -31,7 +31,7 @@ describe('createDirectory', () => {
     const result = await subject.createDirectory('./path', { workingDirectory })
 
     expect(result).toBe(path.join(workingDirectory, 'path'))
-    await expect(fs.access(result)).resolves.toEqual(undefined)
+    await expect(fs.access(result)).resolves.toBeUndefined()
   })
 
   it('should resolve relative paths', async () => {
@@ -41,6 +41,6 @@ describe('createDirectory', () => {
     })
 
     expect(result).toBe(path.join(workingDirectory, 'path'))
-    await expect(fs.access(result)).resolves.toEqual(undefined)
+    await expect(fs.access(result)).resolves.toBeUndefined()
   })
 })

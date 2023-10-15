@@ -42,12 +42,21 @@ importers:
       eslint-plugin-unicorn:
         specifier: 48.0.1
         version: 48.0.1(eslint@8.51.0)
+      eslint-plugin-vitest:
+        specifier: ^0.3.2
+        version: 0.3.2(@typescript-eslint/eslint-plugin@6.7.4)(eslint@8.51.0)(typescript@5.2.2)(vitest@0.34.6)
       prettier:
         specifier: 3.0.3
         version: 3.0.3
       typescript:
         specifier: 5.2.2
         version: 5.2.2
+      vitest:
+        specifier: ^0.34.6
+        version: 0.34.6
+      vitest-when:
+        specifier: ^0.2.0
+        version: 0.2.0(vitest@0.34.6)
 
   packages/create:
     dependencies:
@@ -73,18 +82,9 @@ importers:
       '@types/semver':
         specifier: ^7.5.3
         version: 7.5.3
-      '@vitest/expect':
-        specifier: ^0.34.6
-        version: 0.34.6
       type-fest:
         specifier: ^4.4.0
         version: 4.4.0
-      vitest:
-        specifier: ^0.34.6
-        version: 0.34.6
-      vitest-when:
-        specifier: ^0.1.2
-        version: 0.1.2(@vitest/expect@0.34.6)(vitest@0.34.6)
 
   packages/eslint-config: {}
 
@@ -1102,6 +1102,26 @@ packages:
       regjsparser: 0.10.0
       semver: 7.5.4
       strip-indent: 3.0.0
+    dev: true
+
+  /eslint-plugin-vitest@0.3.2(@typescript-eslint/eslint-plugin@6.7.4)(eslint@8.51.0)(typescript@5.2.2)(vitest@0.34.6):
+    resolution: {integrity: sha512-A1P0qJVkqHyfDolwm09h8/gu7SbGFOKbacJSeyZ9IRb8uyddgqLcqv4VrqgQfLA7QmGI9lwj1iV90NyZ1cHp8Q==}
+    engines: {node: 14.x || >= 16}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': '*'
+      eslint: '>=8.0.0'
+      vitest: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 6.7.4(@typescript-eslint/parser@6.7.4)(eslint@8.51.0)(typescript@5.2.2)
+      '@typescript-eslint/utils': 6.7.4(eslint@8.51.0)(typescript@5.2.2)
+      eslint: 8.51.0
+      vitest: 0.34.6
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: true
 
   /eslint-scope@7.2.2:
@@ -2517,13 +2537,15 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest-when@0.1.2(@vitest/expect@0.34.6)(vitest@0.34.6):
-    resolution: {integrity: sha512-skMFHBsMZ1Dd0Q7Pw0CVF7+3TyQo4b0aogVd1R0cMhdeULE/Uk40Cxf6bouU5bur+tJriVJArWhk0olSHfmh7A==}
+  /vitest-when@0.2.0(vitest@0.34.6):
+    resolution: {integrity: sha512-BS1+L6HPwV3cMQB+pGa1Zr7gFkKX1TG8GbdgzpTlyW19nvWBmqDZW5GucS79K/lEu0ULWOUceHM56dnr8P/ajg==}
     peerDependencies:
       '@vitest/expect': '>=0.31.0 <1.0.0'
       vitest: '>=0.31.0 <1.0.0'
+    peerDependenciesMeta:
+      '@vitest/expect':
+        optional: true
     dependencies:
-      '@vitest/expect': 0.34.6
       vitest: 0.34.6
     dev: true
 

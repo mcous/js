@@ -47,8 +47,11 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-sonarjs": "0.21.0",
     "eslint-plugin-unicorn": "48.0.1",
+    "eslint-plugin-vitest": "^0.3.2",
     "prettier": "3.0.3",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "vitest": "^0.34.6",
+    "vitest-when": "^0.2.0"
   },
-  "packageManager": "pnpm@8.8.0+sha256.d713a5750e41c3660d1e090608c7f607ad00d1dd5ba9b6552b5f390bf37924e9"
+  "packageManager": "pnpm@8.9.1+sha256.0bbdbc6f227fc4e5308b79236483b092a755799c42932e85fb8916a30c75a47c"
 }

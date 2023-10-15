@@ -35,10 +35,7 @@
     "@types/minimist": "^1.2.3",
     "@types/npm-registry-fetch": "^8.0.5",
     "@types/semver": "^7.5.3",
-    "@vitest/expect": "^0.34.6",
-    "type-fest": "^4.4.0",
-    "vitest": "^0.34.6",
-    "vitest-when": "^0.1.2"
+    "type-fest": "^4.4.0"
   },
   "dependencies": {
     "minimist": "^1.2.8",

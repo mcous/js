@@ -23,7 +23,7 @@ describe('writeManifest', () => {
     )
 
     expect(path.dirname(result)).toEqual(directory)
-    expect(path.basename(result)).toEqual('package.json')
+    expect(path.basename(result)).toBe('package.json')
     await expect(fs.readFile(result, 'utf8')).resolves.toMatch(
       /^\{.+"name": "cool-package".+\}\r?\n$/su,
     )
