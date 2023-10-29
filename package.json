@@ -39,19 +39,19 @@
     "@mcous/typescript-config": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.8.0",
-    "@typescript-eslint/eslint-plugin": "6.7.4",
-    "@typescript-eslint/parser": "6.7.4",
-    "eslint": "8.51.0",
+    "@types/node": "^20.8.9",
+    "@typescript-eslint/eslint-plugin": "6.9.0",
+    "@typescript-eslint/parser": "6.9.0",
+    "eslint": "8.52.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-sonarjs": "0.21.0",
-    "eslint-plugin-unicorn": "48.0.1",
-    "eslint-plugin-vitest": "^0.3.2",
+    "eslint-plugin-unicorn": "49.0.0",
+    "eslint-plugin-vitest": "0.3.8",
     "prettier": "3.0.3",
     "typescript": "5.2.2",
-    "vitest": "^0.34.6",
-    "vitest-when": "^0.2.0"
+    "vitest": "0.34.6",
+    "vitest-when": "0.2.0"
   },
-  "packageManager": "pnpm@8.9.1+sha256.0bbdbc6f227fc4e5308b79236483b092a755799c42932e85fb8916a30c75a47c"
+  "packageManager": "pnpm@8.10.0+sha256.3c5d70d07b0c4849d7e07398b62bf48ca6619ca86f77981125eaab7f5ee82c4c"
 }

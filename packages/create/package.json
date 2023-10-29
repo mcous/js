@@ -1,6 +1,6 @@
 {
   "name": "@mcous/create",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a new JS project with my base configurations.",
   "type": "module",
   "exports": {
@@ -32,14 +32,14 @@
   },
   "homepage": "https://github.com/mcous/js/tree/main/packages/create#readme",
   "devDependencies": {
-    "@types/minimist": "^1.2.3",
-    "@types/npm-registry-fetch": "^8.0.5",
-    "@types/semver": "^7.5.3",
-    "type-fest": "^4.4.0"
+    "@types/minimist": "^1.2.4",
+    "@types/npm-registry-fetch": "^8.0.6",
+    "@types/semver": "^7.5.4",
+    "type-fest": "^4.6.0"
   },
   "dependencies": {
     "minimist": "^1.2.8",
-    "npm-registry-fetch": "^16.0.0",
+    "npm-registry-fetch": "^16.1.0",
     "semver": "^7.5.4",
     "sort-package-json": "^2.6.0"
   }
