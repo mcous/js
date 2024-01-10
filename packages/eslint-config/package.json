@@ -1,6 +1,6 @@
 {
   "name": "@mcous/eslint-config",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "My base ESLint configuration.",
   "type": "commonjs",
   "exports": {
@@ -42,7 +42,7 @@
     "eslint-config-prettier": ">=8.0.0 <10",
     "eslint-plugin-promise": ">=6.0.0 <7",
     "eslint-plugin-sonarjs": ">=0.19.0 <0.24.0",
-    "eslint-plugin-unicorn": ">=47.0.0 <50",
+    "eslint-plugin-unicorn": ">=47.0.0 <51",
     "eslint-plugin-vitest": ">=0.3.0 <0.4"
   }
 }
