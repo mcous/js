@@ -43,6 +43,6 @@ describe('readManifest', () => {
 
     const result = subject.readManifest(directory)
 
-    await expect(result).rejects.toThrow(/unexpected token/iu)
+    await expect(result).rejects.toThrow(/expected property name/iu)
   })
 })
