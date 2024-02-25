@@ -1,6 +1,6 @@
 {
   "name": "@mcous/eslint-config",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "My base ESLint configuration.",
   "type": "commonjs",
   "exports": {
@@ -36,13 +36,13 @@
     }
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=5.0.0 <7",
-    "@typescript-eslint/parser": ">=5.0.0 <7",
+    "@typescript-eslint/eslint-plugin": ">=5.0.0 <8",
+    "@typescript-eslint/parser": ">=5.0.0 <8",
     "eslint": ">=8.0.0 <9",
     "eslint-config-prettier": ">=8.0.0 <10",
     "eslint-plugin-promise": ">=6.0.0 <7",
-    "eslint-plugin-sonarjs": ">=0.19.0 <0.24.0",
-    "eslint-plugin-unicorn": ">=47.0.0 <51",
+    "eslint-plugin-sonarjs": ">=0.19.0 <0.25",
+    "eslint-plugin-unicorn": ">=47.0.0 <52",
     "eslint-plugin-vitest": ">=0.3.0 <0.4"
   }
 }

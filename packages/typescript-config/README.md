@@ -21,6 +21,6 @@ Use the [base config](./base.json) for generic TypeScript projects, including co
   "extends": "@mcous/typescript-config/base.json",
   "compilerOptions": {
     // ...project specific options, like `module` and `target`
-  }
+  },
 }
 ```
