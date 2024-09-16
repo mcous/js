@@ -1,48 +1,50 @@
 {
   "name": "@mcous/eslint-config",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "My base ESLint configuration.",
-  "type": "commonjs",
-  "exports": {
-    "types": "./dist/base.d.ts",
-    "default": "./dist/base.js"
-  },
-  "main": "./dist/base.js",
-  "types": "./dist/base.d.ts",
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "scripts": {
-    "build": "tsc"
-  },
   "keywords": [
     "eslint-config"
   ],
-  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
-  "license": "MIT",
+  "homepage": "https://github.com/mcous/js/tree/main/packages/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/mcous/js/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcous/js.git",
     "directory": "packages/eslint-config"
   },
-  "bugs": {
-    "url": "https://github.com/mcous/js/issues"
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
+  "type": "module",
+  "exports": {
+    "types": "./dist/base.d.ts",
+    "default": "./src/base.js"
   },
-  "homepage": "https://github.com/mcous/js/tree/main/packages/eslint-config#readme",
-  "eslintConfig": {
-    "rules": {
-      "unicorn/prefer-module": "off"
-    }
+  "main": "./dist/base.js",
+  "types": "./dist/base.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.10.0",
+    "@typescript-eslint/utils": "^8.5.0",
+    "@vitest/eslint-plugin": "^1.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "typescript-eslint": "^8.5.0"
+  },
+  "devDependencies": {
+    "@types/eslint__js": "^8.42.3"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=5.0.0 <8",
-    "@typescript-eslint/parser": ">=5.0.0 <8",
-    "eslint": ">=8.0.0 <9",
-    "eslint-config-prettier": ">=8.0.0 <10",
-    "eslint-plugin-promise": ">=6.0.0 <7",
-    "eslint-plugin-sonarjs": ">=0.19.0 <0.25",
-    "eslint-plugin-unicorn": ">=47.0.0 <52",
-    "eslint-plugin-vitest": ">=0.3.0 <0.4"
+    "eslint": ">=9 <10",
+    "typescript": ">=5.0.0 <6"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

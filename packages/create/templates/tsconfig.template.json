@@ -4,9 +4,6 @@
     "types": ["node"],
     "module": "node16",
     "target": "es2021",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "rootDir": "src",
-    "outDir": "dist"
+    "noEmit": true
   }
 }

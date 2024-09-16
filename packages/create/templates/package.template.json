@@ -19,15 +19,8 @@
     "default": "./dist/index.js"
   },
   "scripts": {
-    "_eslint": "eslint \"**/*.{js,cjs,ts,tsx}\"",
-    "_prettier": "prettier \"**/*.{js,cjs,ts,tsx,md,mdx,json,yml,yaml}\"",
-    "format": "pnpm _prettier --write",
-    "lint": "pnpm _prettier --check && pnpm _eslint"
-  },
-  "prettier": "@mcous/prettier-config",
-  "eslintConfig": {
-    "extends": "@mcous/eslint-config",
-    "root": true
+    "format": "eslint . --fix && prettier . --write",
+    "lint": "eslint . && prettier . --check"
   },
   "publishConfig": {
     "access": "public",

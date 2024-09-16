@@ -1,33 +1,32 @@
 {
   "name": "@mcous/typescript-config",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "My base TypeScript configuration.",
+  "keywords": [
+    "tsconfig"
+  ],
+  "homepage": "https://github.com/mcous/js/tree/main/packages/typescript-config#readme",
+  "bugs": {
+    "url": "https://github.com/mcous/js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcous/js.git",
+    "directory": "packages/typescript-config"
+  },
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "type": "module",
   "exports": {
     ".": "./base.json",
     "./base.json": "./base.json"
   },
   "main": "./base.json",
+  "peerDependencies": {
+    "typescript": ">=5.0.0 <6"
+  },
   "publishConfig": {
     "access": "public",
     "provenance": true
-  },
-  "scripts": {},
-  "keywords": [
-    "tsconfig"
-  ],
-  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mcous/js.git",
-    "directory": "packages/typescript-config"
-  },
-  "bugs": {
-    "url": "https://github.com/mcous/js/issues"
-  },
-  "homepage": "https://github.com/mcous/js/tree/main/packages/typescript-config#readme",
-  "peerDependencies": {
-    "typescript": ">=5.0.0 <6"
   }
 }

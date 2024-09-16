@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install --save-dev @mcous/typescript-config typescript
+pnpm add --save-dev typescript @mcous/typescript-config
 ```
 
 ## Usage

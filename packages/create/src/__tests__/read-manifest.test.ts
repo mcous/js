@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
+
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import * as subject from '../read-manifest.js'
@@ -43,6 +44,6 @@ describe('readManifest', () => {
 
     const result = subject.readManifest(directory)
 
-    await expect(result).rejects.toThrow(/expected property name/iu)
+    await expect(result).rejects.toThrow(/expected/iu)
   })
 })

@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+
 import type { PackageJson } from 'type-fest'
 
 const isNoEntityError = (error: unknown): boolean => {
