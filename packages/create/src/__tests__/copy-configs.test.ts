@@ -7,14 +7,14 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import * as subject from '../copy-configs.js'
 
 describe('copyConfigs', () => {
-  let directory: string
+  let project: string
 
   beforeEach(async () => {
-    directory = await fs.mkdtemp(path.join(os.tmpdir(), 'copy-configs-'))
+    project = await fs.mkdtemp(path.join(os.tmpdir(), 'copy-configs-'))
   })
 
   afterEach(async () => {
-    await fs.rm(directory, { force: true, recursive: true })
+    await fs.rm(project, { force: true, recursive: true })
   })
 
   it.each([
@@ -36,12 +36,13 @@ describe('copyConfigs', () => {
   ])(
     'should copy $expectedFilename',
     async ({ dependency, expectedFilename, expectedContents }) => {
-      const result = await subject.copyConfigs(directory, {
+      const result = await subject.copyConfigs({
+        project,
         dependencyNames: [dependency],
       })
 
       expect(result).toEqual([
-        { result: 'wrote', filename: path.join(directory, expectedFilename) },
+        { result: 'wrote', filename: path.join(project, expectedFilename) },
       ])
       const contents = await fs.readFile(result[0]!.filename, 'utf8')
       expect(contents).toContain(expectedContents)
@@ -50,16 +51,13 @@ describe('copyConfigs', () => {
 
   it('does not overwrite existing configs', async () => {
     await Promise.all([
-      fs.writeFile(path.join(directory, './eslint.config.js'), "can't", 'utf8'),
-      fs.writeFile(
-        path.join(directory, './prettier.config.js'),
-        'touch',
-        'utf8',
-      ),
-      fs.writeFile(path.join(directory, './tsconfig.json'), 'this', 'utf8'),
+      fs.writeFile(path.join(project, './eslint.config.js'), "can't", 'utf8'),
+      fs.writeFile(path.join(project, './prettier.config.js'), 'touch', 'utf8'),
+      fs.writeFile(path.join(project, './tsconfig.json'), 'this', 'utf8'),
     ])
 
-    const result = await subject.copyConfigs(directory, {
+    const result = await subject.copyConfigs({
+      project,
       dependencyNames: [
         '@mcous/eslint-config',
         '@mcous/prettier-config',
@@ -70,15 +68,15 @@ describe('copyConfigs', () => {
     expect(result).toEqual([
       {
         result: 'skipped',
-        filename: path.join(directory, './eslint.config.js'),
+        filename: path.join(project, './eslint.config.js'),
       },
       {
         result: 'skipped',
-        filename: path.join(directory, './prettier.config.js'),
+        filename: path.join(project, './prettier.config.js'),
       },
       {
         result: 'skipped',
-        filename: path.join(directory, './tsconfig.json'),
+        filename: path.join(project, './tsconfig.json'),
       },
     ])
     const contents = await Promise.all([
@@ -87,5 +85,19 @@ describe('copyConfigs', () => {
       fs.readFile(result[2]!.filename, 'utf8'),
     ])
     expect(contents).toEqual(["can't", 'touch', 'this'])
+  })
+
+  it('creates directory if needed', async () => {
+    const result = await subject.copyConfigs({
+      project: path.join(project, 'subpath'),
+      dependencyNames: ['@mcous/eslint-config'],
+    })
+
+    expect(result).toEqual([
+      {
+        result: 'wrote',
+        filename: path.join(project, 'subpath', './eslint.config.js'),
+      },
+    ])
   })
 })

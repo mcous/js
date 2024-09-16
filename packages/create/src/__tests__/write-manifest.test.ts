@@ -30,4 +30,21 @@ describe('writeManifest', () => {
       /^\{.+"name": "cool-package".+\}\r?\n$/su,
     )
   })
+
+  it('should create directory if needed', async () => {
+    const result = await subject.writeManifest(
+      path.join(directory, 'subpath'),
+      {
+        name: 'cool-package',
+      },
+    )
+
+    expect(result).toEqual({
+      result: 'wrote',
+      filename: path.join(directory, 'subpath', 'package.json'),
+    })
+    await expect(fs.readFile(result.filename, 'utf8')).resolves.toMatch(
+      /^\{.+"name": "cool-package".+\}\r?\n$/su,
+    )
+  })
 })
