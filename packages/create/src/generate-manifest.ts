@@ -1,10 +1,10 @@
+import fs from 'node:fs/promises'
+
 import sortPackageJson from 'sort-package-json'
 import type { PackageJson } from 'type-fest'
 
-import fs from 'node:fs/promises'
-
 const PACKAGE_JSON_TEMPLATE = new URL(
-  '../templates/package.json',
+  '../templates/package.template.json',
   import.meta.url,
 )
 

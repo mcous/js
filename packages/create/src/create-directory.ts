@@ -1,17 +1,14 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-export interface Options {
-  workingDirectory?: string
-}
+import type { ProjectOptions } from './read-options.js'
+
+export type CreateManifestOptions = Pick<ProjectOptions, 'project'>
 
 export async function createDirectory(
-  pathname: string,
-  options: Options = {},
+  options: CreateManifestOptions,
 ): Promise<string> {
-  const absolutePathname = options.workingDirectory
-    ? path.resolve(options.workingDirectory, pathname)
-    : path.resolve(pathname)
+  const absolutePathname = path.resolve(options.project)
 
   await fs.mkdir(absolutePathname, { recursive: true })
 

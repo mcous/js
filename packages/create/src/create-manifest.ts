@@ -1,21 +1,25 @@
 import { fetchPackageVersions } from './fetch-package-versions.js'
 import { generateManifest } from './generate-manifest.js'
+import { getProjectName } from './get-project-name.js'
 import { readManifest } from './read-manifest.js'
+import type { ProjectOptions } from './read-options.js'
+import type { CreateResult } from './result.js'
 import { writeManifest } from './write-manifest.js'
 
-export interface ManifestOptions {
-  name: string
-  author: string
-  repository: string
-  dependencyNames: string[]
-  directory: string
-}
+export type CreateManifestOptions = Pick<
+  ProjectOptions,
+  'name' | 'author' | 'repository' | 'dependencyNames'
+>
 
 export async function createManifest(
-  options: ManifestOptions,
-): Promise<string> {
-  const { name, author, repository, dependencyNames, directory } = options
-  const versionTasks = dependencyNames.map((name) => fetchPackageVersions(name))
+  directory: string,
+  options: CreateManifestOptions,
+): Promise<CreateResult> {
+  const { author, repository, dependencyNames } = options
+  const name = getProjectName(directory, options)
+  const versionTasks = [...dependencyNames].map((name) =>
+    fetchPackageVersions(name),
+  )
   const dependencyVersions = await Promise.all(versionTasks)
   const devDependencies = Object.fromEntries(dependencyVersions.flat())
   const existingManifest = await readManifest(directory)
@@ -26,5 +30,5 @@ export async function createManifest(
     devDependencies,
   })
 
-  return writeManifest(manifest, directory)
+  return writeManifest(directory, manifest)
 }

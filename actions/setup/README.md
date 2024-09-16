@@ -8,7 +8,7 @@ Add a `uses: mcous/js/actions/setup` step to your workflow. The following option
 
 | Input          | Default | Description                       |
 | -------------- | ------- | --------------------------------- |
-| `node-version` | `18`    | Node.js version to install        |
+| `node-version` | `20`    | Node.js version to install        |
 | `registry-url` | Unset   | Registry to configure for publish |
 | `run-install`  | `true`  | Run `pnpm install`                |
 
