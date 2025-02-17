@@ -15,8 +15,14 @@ export default tseslint.config(
   eslintPluginPromise.configs['flat/recommended'],
   eslintConfigPrettier,
   {
-    plugins: {
-      'simple-import-sort': eslintPluginSimpleImportSort,
+    name: '@mcous/eslint-config/base',
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      parserOptions: {
+        projectService: true,
+        warnOnUnsupportedTypeScriptVersion: false,
+      },
     },
     rules: {
       '@typescript-eslint/no-confusing-void-expression': [
@@ -34,8 +40,6 @@ export default tseslint.config(
           allowNever: false,
         },
       ],
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
       'unicorn/no-array-callback-reference': 'off',
       'unicorn/no-useless-undefined': 'off',
       'unicorn/prevent-abbreviations': [
@@ -55,23 +59,21 @@ export default tseslint.config(
     },
   },
   {
-    files: ['**/__tests__/**'],
+    name: '@mcous/eslint-config/simple-import-sort',
     plugins: {
-      vitest: eslintPluginVitest,
+      'simple-import-sort': eslintPluginSimpleImportSort,
     },
     rules: {
-      ...eslintPluginVitest.configs.recommended.rules,
-      '@typescript-eslint/no-non-null-assertion': 'off',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   {
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      parserOptions: {
-        projectService: true,
-        warnOnUnsupportedTypeScriptVersion: false,
-      },
+    name: '@mcous/eslint-config/vitest',
+    files: ['**/__tests__/**'],
+    extends: [eslintPluginVitest.configs.recommended],
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
     },
   },
 )
