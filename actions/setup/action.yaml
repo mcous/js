@@ -4,12 +4,12 @@ description: Install Node, pnpm, and dependencies with caching
 inputs:
   node-version:
     description: Node.js version to install
-    default: '20'
+    default: '22'
   registry-url:
     description: Registry to configure for publish
   run-install:
     description: Run pnpm install
-    default: true
+    default: 'true'
 
 runs:
   using: composite
