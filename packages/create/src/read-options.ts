@@ -37,14 +37,18 @@ const CLI_OPTIONS = {
   default: { eslint: true, prettier: true, typescript: true },
 }
 
-export function readOptions(argv: string[]): ProjectOptions {
+export function readOptions(
+  argv: string[],
+  workingDirectory: string,
+): ProjectOptions {
   const options = parseArgv<CLIArguments>(argv, CLI_OPTIONS)
-  const [project] = options._
+  const [inputProject] = options._
 
-  if (project === undefined) {
+  if (inputProject === undefined) {
     throw new UsageError('Invalid usage: a project path must be specified')
   }
 
+  const project = path.resolve(workingDirectory, inputProject)
   const name = options.name ?? path.basename(project)
   const repository = options.repository ?? `${DEFAULT_REPO_USER}/${name}`
   const author = options.author ?? DEFAULT_AUTHOR
