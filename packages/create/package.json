@@ -30,14 +30,14 @@
   "dependencies": {
     "minimist": "^1.2.8",
     "npm-registry-fetch": "^18.0.2",
-    "semver": "^7.7.1",
-    "sort-package-json": "^2.14.0"
+    "semver": "^7.7.2",
+    "sort-package-json": "^3.4.0"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.5",
-    "@types/npm-registry-fetch": "^8.0.7",
-    "@types/semver": "^7.5.8",
-    "type-fest": "^4.35.0"
+    "@types/npm-registry-fetch": "^8.0.8",
+    "@types/semver": "^7.7.0",
+    "type-fest": "^4.41.0"
   },
   "publishConfig": {
     "access": "public",
