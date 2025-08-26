@@ -4,13 +4,11 @@ import { when } from 'vitest-when'
 import * as subject from '../create-manifest.js'
 import { fetchPackageVersions } from '../fetch-package-versions.js'
 import { generateManifest } from '../generate-manifest.js'
-import { getProjectName } from '../get-project-name.js'
 import { readManifest } from '../read-manifest.js'
 import { writeManifest } from '../write-manifest.js'
 
 vi.mock('../fetch-package-versions.js')
 vi.mock('../generate-manifest.js')
-vi.mock('../get-project-name.js')
 vi.mock('../read-manifest.js')
 vi.mock('../write-manifest.js')
 
@@ -29,10 +27,6 @@ describe('create manifest', () => {
         ['@mcous/prettier-config', '7.8.9'],
         ['prettier', '10.11.12'],
       ])
-
-    when(getProjectName)
-      .calledWith('/path/to/directory', expect.objectContaining({ name: '.' }))
-      .thenReturn('cool-name')
   })
 
   it('should fetch dependencies and place them in a base manifest', async () => {
@@ -54,8 +48,9 @@ describe('create manifest', () => {
       .calledWith('/path/to/directory', { name: 'cool-package' })
       .thenResolve({ result: 'wrote', filename: '/path/to/package.json' })
 
-    const result = await subject.createManifest('/path/to/directory', {
-      name: '.',
+    const result = await subject.createManifest({
+      project: '/path/to/directory',
+      name: 'cool-name',
       author: 'cool-author',
       repository: 'cool-repository',
       dependencyNames: ['@mcous/eslint-config', '@mcous/prettier-config'],
@@ -83,8 +78,9 @@ describe('create manifest', () => {
       .calledWith('/path/to/directory', { name: 'cool-existing-package' })
       .thenResolve({ result: 'wrote', filename: '/path/to/package.json' })
 
-    const result = await subject.createManifest('/path/to/directory', {
-      name: '.',
+    const result = await subject.createManifest({
+      project: '/path/to/directory',
+      name: 'cool-name',
       author: 'cool-author',
       repository: 'cool-repository',
       dependencyNames: ['@mcous/eslint-config', '@mcous/prettier-config'],
