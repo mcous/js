@@ -1,9 +1,9 @@
 declare module 'eslint-plugin-promise' {
-  import type { ConfigWithExtends } from 'typescript-eslint'
+  import type ESLint from 'eslint'
 
   const plugin: {
     configs: {
-      'flat/recommended': ConfigWithExtends
+      'flat/recommended': ESLint.Linter.Config[]
     }
   }
 

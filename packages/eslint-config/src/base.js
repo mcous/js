@@ -1,16 +1,17 @@
 import js from '@eslint/js'
 import eslintPluginVitest from '@vitest/eslint-plugin'
+import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPromise from 'eslint-plugin-promise'
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import tseslint from 'typescript-eslint'
 
-/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
-export default tseslint.config(
+/** @type {import('eslint').Linter.Config[]} */
+export default defineConfig(
   js.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
   eslintPluginUnicorn.configs.recommended,
   eslintPluginPromise.configs['flat/recommended'],
   eslintConfigPrettier,
