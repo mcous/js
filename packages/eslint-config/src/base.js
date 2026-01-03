@@ -71,10 +71,12 @@ export default defineConfig(
   },
   {
     name: '@mcous/eslint-config/vitest',
-    files: ['**/__tests__/**'],
+    files: ['**/__tests__/**', '**/test?(s)/**'],
     extends: [eslintPluginVitest.configs.recommended],
     rules: {
       '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
     },
   },
 )
