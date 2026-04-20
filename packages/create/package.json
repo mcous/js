@@ -1,6 +1,6 @@
 {
   "name": "@mcous/create",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create a new JS project with my base configurations.",
   "keywords": [],
   "homepage": "https://github.com/mcous/js/tree/main/packages/create#readme",

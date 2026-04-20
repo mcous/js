@@ -5,7 +5,10 @@ import url from 'node:url'
 import type { ProjectOptions } from './read-options.js'
 import type { CreateResult } from './result.js'
 
-export type CopyConfigsOptions = Pick<ProjectOptions, 'dependencyNames'>
+export type CopyConfigsOptions = Pick<
+  ProjectOptions,
+  'project' | 'dependencyNames'
+>
 
 const configs: Record<string, URL> = {
   '@mcous/eslint-config': new URL(
@@ -23,13 +26,14 @@ const configs: Record<string, URL> = {
 }
 
 export async function copyConfigs(
-  directory: string,
   options: CopyConfigsOptions,
 ): Promise<CreateResult[]> {
+  await fs.mkdir(options.project, { recursive: true })
+
   return Promise.all(
     options.dependencyNames
       .flatMap((name) => configs[name] ?? [])
-      .map((url) => copyTemplate(directory, url)),
+      .map((url) => copyTemplate(options.project, url)),
   )
 }
 

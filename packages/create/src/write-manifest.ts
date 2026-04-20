@@ -13,6 +13,7 @@ export async function writeManifest(
   const filename = path.resolve(directory, 'package.json')
   const contents = JSON.stringify(manifest, undefined, 2)
 
+  await fs.mkdir(directory, { recursive: true })
   await fs.writeFile(filename, `${contents}${os.EOL}`, 'utf8')
 
   return { filename, result: 'wrote' }
