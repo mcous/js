@@ -3,35 +3,37 @@
   "private": true,
   "description": "Monorepo for my base JS configurations.",
   "keywords": [],
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcous/js.git"
   },
-  "license": "MIT",
-  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "type": "module",
   "scripts": {
     "all": "pnpm build && pnpm lint && pnpm test",
     "build": "pnpm -r --aggregate-output build",
-    "format": "eslint . --fix && sort-package-json package.json packages/*/package.json && prettier . --write ",
-    "lint": "eslint . && prettier . --check",
+    "format": "eslint . --fix && oxlint . --fix && prettier . --write && oxfmt .",
+    "lint": "eslint . && oxlint . && prettier . --check && oxfmt . --check",
     "test": "pnpm -r --aggregate-output test:once"
   },
   "dependencies": {
     "@mcous/eslint-config": "workspace:*",
+    "@mcous/oxc-config": "workspace:*",
     "@mcous/prettier-config": "workspace:*",
     "@mcous/typescript-config": "workspace:*"
   },
   "devDependencies": {
-    "@emnapi/core": "^1.9.1",
-    "@emnapi/runtime": "^1.9.1",
-    "@types/node": "^25.5.0",
-    "eslint": "^10.1.0",
-    "prettier": "^3.8.1",
-    "sort-package-json": "^3.6.1",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.2",
+    "@oxlint/migrate": "^1.65.0",
+    "@types/node": "^25.8.0",
+    "eslint": "^10.4.0",
+    "oxfmt": "^0.50.0",
+    "oxlint": "^1.65.0",
+    "oxlint-tsgolint": "^0.22.1",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.6",
     "vitest-when": "^0.10.0"
   },
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
+  "packageManager": "pnpm@11.1.2+sha512.415a1cc25974731e75455c1468371be74c5aa5fb7621b50d4056d222451609f11412f23fd602e6169f1e060466641f798597e1be961a10688836a67b16569499"
 }

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source=$1
+output=$2
+tmpjson="migrate-eslint.tmp.json"
+
+migrate "$source" \
+  --type-aware \
+  --with-nursery \
+  --js-plugins=false \
+  --output-file="$tmpjson"
+
+{
+  printf 'import { defineConfig } from "oxlint"\n\nexport default defineConfig('
+  jq 'del(."$schema")' "$tmpjson"
+  printf ')\n'
+} > "$output"
+
+rm -rf "$tmpjson"
+oxfmt "$output"

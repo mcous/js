@@ -12,6 +12,7 @@
 | [ESLint][eslint docs]         | `@mcous/eslint-config`     | [![eslint version][]][eslint npm]         |
 | [Prettier][prettier docs]     | `@mcous/prettier-config`   | [![prettier version][]][prettier npm]     |
 | [TypeScript][typescript docs] | `@mcous/typescript-config` | [![typescript version][]][typescript npm] |
+| [oxlint & oxfmt][oxc docs]    | `@mcous/oxc-config`        | [![oxc version][]][oxc npm]               |
 
 [eslint docs]: ./packages/eslint-config
 [eslint npm]: https://www.npmjs.com/package/@mcous/eslint-config
@@ -22,6 +23,9 @@
 [typescript docs]: ./packages/typescript-config
 [typescript npm]: https://www.npmjs.com/package/@mcous/typescript-config
 [typescript version]: https://img.shields.io/npm/v/@mcous/typescript-config?style=flat-square
+[oxc docs]: ./packages/oxc-config
+[oxc npm]: https://www.npmjs.com/package/@mcous/oxc-config
+[oxc version]: https://img.shields.io/npm/v/@mcous/oxc-config?style=flat-square
 
 ## Actions
 

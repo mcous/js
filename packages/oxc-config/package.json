@@ -1,0 +1,40 @@
+{
+  "name": "@mcous/oxc-config",
+  "version": "0.1.0",
+  "description": "My base oxlint and oxfmt configurations.",
+  "homepage": "https://github.com/mcous/js/tree/main/packages/oxc-config#readme",
+  "bugs": {
+    "url": "https://github.com/mcous/js/issues"
+  },
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcous/js.git",
+    "directory": "packages/oxc-config"
+  },
+  "type": "module",
+  "exports": {
+    "./lint": "./src/lint.ts",
+    "./fmt": "./src/fmt.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "migrate-eslint": "./scripts/migrate-eslint ../eslint-config/src/base.js ./src/lint.ts"
+  },
+  "peerDependencies": {
+    "oxfmt": "*",
+    "oxlint": "*"
+  },
+  "peerDependenciesMeta": {
+    "oxfmt": {
+      "optional": true
+    },
+    "oxlint": {
+      "optional": true
+    }
+  }
+}

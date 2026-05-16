@@ -21,9 +21,7 @@ describe('readOptions', () => {
   })
 
   it('should raise a usage error if no project', () => {
-    const act = () => subject.readOptions([])
-
-    expect(act).toThrow(subject.UsageError)
+    expect(() => subject.readOptions([])).toThrow(subject.UsageError)
   })
 
   it('should accept custom name, repo, and author', () => {

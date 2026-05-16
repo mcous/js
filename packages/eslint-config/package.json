@@ -1,6 +1,6 @@
 {
   "name": "@mcous/eslint-config",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "My base ESLint configuration.",
   "keywords": [
     "eslint-config"
@@ -9,38 +9,38 @@
   "bugs": {
     "url": "https://github.com/mcous/js/issues"
   },
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcous/js.git",
     "directory": "packages/eslint-config"
   },
-  "license": "MIT",
-  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "type": "module",
+  "main": "./dist/base.js",
+  "types": "./dist/base.d.ts",
   "exports": {
     "types": "./dist/base.d.ts",
     "default": "./src/base.js"
   },
-  "main": "./dist/base.js",
-  "types": "./dist/base.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/utils": "^8.58.0",
-    "@vitest/eslint-plugin": "^1.6.14",
+    "@typescript-eslint/utils": "^8.59.3",
+    "@vitest/eslint-plugin": "^1.6.17",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
     "eslint-plugin-unicorn": "^64.0.0",
-    "typescript-eslint": "^8.58.0"
+    "typescript-eslint": "^8.59.3"
   },
   "peerDependencies": {
     "eslint": ">=9.22.0 <11",
     "typescript": ">=5.0.0 <7"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
   }
 }

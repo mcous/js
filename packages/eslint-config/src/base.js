@@ -1,9 +1,9 @@
 import js from '@eslint/js'
 import eslintPluginVitest from '@vitest/eslint-plugin'
-import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
+import { defineConfig } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 
 /** @type {import('eslint').Linter.Config[]} */
