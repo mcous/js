@@ -2,9 +2,18 @@
 
 set -euo pipefail
 
+if [[ $# -ne 2 ]]; then
+  echo "Usage: $0 <source-eslint-config> <output-oxlint-config>" >&2
+  exit 1
+fi
+
 source=$1
 output=$2
+
+# NOTE: `@oxlint/migrate` does not accept an absolute path for `--output-file`
+# use a relative temporary file, instead
 tmpjson="migrate-eslint.tmp.json"
+trap 'rm -f "$tmpjson"' EXIT
 
 migrate "$source" \
   --type-aware \
@@ -18,5 +27,4 @@ migrate "$source" \
   printf ')\n'
 } > "$output"
 
-rm -rf "$tmpjson"
 oxfmt "$output"
