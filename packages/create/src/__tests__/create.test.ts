@@ -2,9 +2,9 @@ import { describe, expect, it, vi } from 'vitest'
 import { when } from 'vitest-when'
 
 import { copyConfigs } from '../copy-configs.js'
+import * as subject from '../create.js'
 import { createDirectory } from '../create-directory.js'
 import { createManifest } from '../create-manifest.js'
-import * as subject from '../create.js'
 import { readOptions } from '../read-options.js'
 
 vi.mock('../read-options.js')

@@ -10,10 +10,4 @@ export default [
     },
   },
   ...baseConfig,
-  {
-    rules: {
-      'simple-import-sort/imports': 'off',
-      'simple-import-sort/exports': 'off',
-    },
-  },
 ]

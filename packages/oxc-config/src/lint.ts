@@ -340,7 +340,7 @@ export default defineConfig({
       },
     },
     {
-      files: ['**/__tests__/**', '**/test?(s)/**'],
+      files: ['**/{__tests__,tests,test}/**'],
       rules: {
         'vitest/expect-expect': 'error',
         'vitest/no-commented-out-tests': 'error',

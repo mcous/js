@@ -15,15 +15,16 @@
   },
   "type": "module",
   "exports": {
-    "./lint": "./src/lint.ts",
-    "./fmt": "./src/fmt.ts"
+    "./lint": "./dist/lint.js",
+    "./fmt": "./dist/fmt.js"
   },
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
   "scripts": {
-    "migrate-eslint": "./scripts/migrate-eslint ../eslint-config/src/base.js ./src/lint.ts"
+    "migrate-eslint": "./scripts/migrate-eslint ../eslint-config/src/base.js ./src/lint.ts",
+    "build": "tsc"
   },
   "peerDependencies": {
     "oxfmt": "*",
