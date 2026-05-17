@@ -1,0 +1,9 @@
+{
+  "name": "@mcous/init-npm-package",
+  "version": "1.0.0",
+  "description": "Publish an initial, empty version of an npm package prior to CI-driven trusted publishing.",
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
+  "bin": "bin/init-npm-package",
+  "type": "module"
+}

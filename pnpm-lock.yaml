@@ -104,6 +104,8 @@ importers:
         specifier: ^8.59.3
         version: 8.59.3(eslint@10.4.0)(typescript@6.0.3)
 
+  packages/init-npm-package: {}
+
   packages/oxc-config: {}
 
   packages/prettier-config: {}
