@@ -2,8 +2,8 @@
   "extends": "@mcous/typescript-config/base.json",
   "compilerOptions": {
     "types": ["node"],
-    "module": "node16",
-    "target": "es2021",
+    "module": "nodenext",
+    "target": "es2024",
     "noEmit": true
   }
 }

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -ne 2 ]]; then
+  echo "Usage: $0 <source-eslint-config> <output-oxlint-config>" >&2
+  exit 1
+fi
+
+source=$1
+output=$2
+
+# NOTE: `@oxlint/migrate` does not accept an absolute path for `--output-file`
+# use a relative temporary file, instead
+tmpjson="migrate-eslint.tmp.json"
+trap 'rm -f "$tmpjson"' EXIT
+
+migrate "$source" \
+  --type-aware \
+  --with-nursery \
+  --js-plugins=false \
+  --output-file="$tmpjson"
+
+{
+  printf 'import { defineConfig } from "oxlint"\n\nexport default defineConfig('
+  jq 'del(."$schema")' "$tmpjson"
+  printf ')\n'
+} > "$output"
+
+oxfmt "$output"

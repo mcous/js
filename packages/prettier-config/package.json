@@ -9,26 +9,26 @@
   "bugs": {
     "url": "https://github.com/mcous/js/issues"
   },
+  "license": "MIT",
+  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcous/js.git",
     "directory": "packages/prettier-config"
   },
-  "license": "MIT",
-  "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
   "type": "module",
   "exports": {
     "types": "./dist/base.d.ts",
     "default": "./src/base.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "build": "tsc"
   },
   "peerDependencies": {
     "prettier": ">=3.0.0 <4"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
   }
 }
