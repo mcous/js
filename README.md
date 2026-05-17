@@ -27,6 +27,14 @@
 [oxc npm]: https://www.npmjs.com/package/@mcous/oxc-config
 [oxc version]: https://img.shields.io/npm/v/@mcous/oxc-config?style=flat-square
 
+## Utilities
+
+| Utility                           | Description                                                             |
+| --------------------------------- | ----------------------------------------------------------------------- |
+| [`@mcous/init-npm-package`][init] | Publish an initially empty npm package and configure trusted publishing |
+
+[init]: ./packages/init-npm-package
+
 ## Actions
 
 | Action                    | Path                     | Description                                       |
