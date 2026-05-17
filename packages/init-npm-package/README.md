@@ -8,7 +8,7 @@ Publish an initial, empty version of an npm package and configure it for [truste
 
 ```shell
 npm login
-pnpx @mcous/init-npm-package --name <name> --access <access> --workflow <workflow> --repo <repo> --env <env>"
+pnpx @mcous/init-npm-package --name <name> --access <access> --workflow <workflow> --repo <repo> --env <env>
 ```
 
 ### Example

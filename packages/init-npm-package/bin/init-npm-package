@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
-#
-set -euo pipefail
 
-usage() {
-  echo "Usage: $0 --name <name> --access <access> --workflow <workflow> --repo <repo> --env <env>"
-  exit 1
-}
+set -euo pipefail
 
 name=""
 access=""
@@ -13,17 +8,37 @@ workflow=""
 repo=""
 env=""
 
+usage() {
+  echo "Usage: $0 --name <name> --access <access> --workflow <workflow> --repo <repo> --env <env>"
+  exit 1
+}
+
+get_value() {
+  if [[ "$1" == *=* ]]; then echo "${1#*=}"; else echo "$2"; fi
+}
+
+require_value() {
+  local value
+  value=$(get_value "$1" "${2:-}")
+  if [[ -z "$value" || "$value" == --* ]]; then
+    echo "Missing value for ${1%%=*}"
+    usage
+  fi
+}
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --name)     name="$2";     shift 2 ;;
-    --access)   access="$2";   shift 2 ;;
-    --workflow) workflow="$2"; shift 2 ;;
-    --repo)     repo="$2";     shift 2 ;;
-    --env)      env="$2";      shift 2 ;;
+    --name|--name=*)         require_value "$1" "${2:-}"; name=$(get_value "$1" "${2:-}") ;;
+    --access|--access=*)     require_value "$1" "${2:-}"; access=$(get_value "$1" "${2:-}") ;;
+    --workflow|--workflow=*) require_value "$1" "${2:-}"; workflow=$(get_value "$1" "${2:-}") ;;
+    --repo|--repo=*)         require_value "$1" "${2:-}"; repo=$(get_value "$1" "${2:-}") ;;
+    --env|--env=*)           require_value "$1" "${2:-}"; env=$(get_value "$1" "${2:-}") ;;
     *) echo "Unknown argument: $1"; usage ;;
   esac
+  if [[ "$1" == *=* ]]; then shift 1; else shift 2; fi
 done
 
+# Validate required args
 [[ -z "$name" ]]     && echo "Missing --name"     && usage
 [[ -z "$access" ]]   && echo "Missing --access"   && usage
 [[ -z "$workflow" ]] && echo "Missing --workflow" && usage
@@ -39,9 +54,10 @@ echo "Env:      $env"
 dir=$(mktemp -d)
 manifest="$dir/package.json"
 readme="$dir/README.md"
+echo "$manifest"
 
 trap 'rm -rf "$dir"' EXIT
-echo "{\"name\": \"$name\", \"version\": \"0.0.0\"}" > $manifest
-echo "# $name" > $readme
+node -e "console.log(JSON.stringify({name: process.argv[1], version: '0.0.0'}))" "$name" > "$manifest"
+echo "# $name" > "$readme"
 npm publish "$dir" --access="$access"
 npm trust github "$name" --file="$workflow" --repo="$repo" --env="$env"
