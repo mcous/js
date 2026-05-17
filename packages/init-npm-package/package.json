@@ -2,8 +2,22 @@
   "name": "@mcous/init-npm-package",
   "version": "1.0.0",
   "description": "Publish an initial, empty version of an npm package prior to CI-driven trusted publishing.",
+  "keywords": [],
+  "homepage": "https://github.com/mcous/js/tree/main/packages/create#readme",
+  "bugs": {
+    "url": "https://github.com/mcous/js/issues"
+  },
   "license": "MIT",
   "author": "Michael Cousins <michael@cousins.io> (https://michael.cousins.io)",
-  "bin": "bin/init-npm-package",
-  "type": "module"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcous/js.git",
+    "directory": "packages/init-npm-package"
+  },
+  "bin": "./bin/init-npm-package",
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }
