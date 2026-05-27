@@ -38,7 +38,7 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org
           run-install: false
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: publish-artifact
           path: packages
