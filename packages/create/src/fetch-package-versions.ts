@@ -45,7 +45,7 @@ async function fetchLatestPeer(
   const allVersions = info.versions as Record<string, unknown>
   const version = semver.maxSatisfying(Object.keys(allVersions), range)
 
-  if (!version) {
+  if (version === null) {
     throw new UnexpectedPeerResolutionError(
       `Unable to find version for peer ${packageName} matching ${range}`,
     )

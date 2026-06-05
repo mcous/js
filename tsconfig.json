@@ -4,6 +4,7 @@
     "types": ["node"],
     "module": "nodenext",
     "target": "es2024",
-    "noEmit": true
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   }
 }

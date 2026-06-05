@@ -11,7 +11,7 @@ export async function readManifest(
   directory: string,
 ): Promise<PackageJson | undefined> {
   const pathname = path.resolve(directory, 'package.json')
-  let contents: string | undefined
+  let contents = ''
 
   try {
     contents = await fs.readFile(pathname, 'utf8')

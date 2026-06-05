@@ -1,6 +1,6 @@
 {
   "name": "@mcous/oxc-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "My base oxlint and oxfmt configurations.",
   "homepage": "https://github.com/mcous/js/tree/main/packages/oxc-config#readme",
   "bugs": {
