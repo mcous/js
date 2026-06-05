@@ -56,6 +56,7 @@ export default defineConfig({
       'error',
       { allowNullableBoolean: true },
     ],
+    'typescript/strict-void-return': 'off', // impractical with arrow functions
     'unicorn/no-array-callback-reference': 'off', // false positives on named callbacks
     'unicorn/no-useless-undefined': 'off', // explicit undefined is often clearer
 
