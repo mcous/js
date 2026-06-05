@@ -8,11 +8,22 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
-      - uses: &checkout actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - &checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
       - uses: ./actions/setup
       - run: pnpm run all
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -21,19 +32,20 @@ jobs:
           path: packages/*/dist
 
   publish:
+    name: Publish
     if: ${{ github.event_name == 'push' && github.repository == 'mcous/js' && github.ref == 'refs/heads/main' }}
     needs: [check]
     runs-on: ubuntu-latest
     environment: npm
     permissions:
       contents: read
-      id-token: write
+      id-token: write # mint OIDC token for npm trusted publishing
 
     outputs:
       report: ${{ steps.publish-report.outputs.report }}
 
     steps:
-      - uses: *checkout
+      - *checkout
       - uses: ./actions/setup
         with:
           registry-url: https://registry.npmjs.org
@@ -50,18 +62,21 @@ jobs:
           echo "EOF" >> "$GITHUB_OUTPUT"
 
   release:
+    name: Release
     needs: [publish]
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write # create GitHub releases and tags
 
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PUBLISH_REPORT: ${{ needs.publish.outputs.report }}
         with:
           script: |
             const { sha: target_commitish } = context
             const { repo, owner } = context.repo
-            const publishReport = JSON.parse(`${{ needs.publish.outputs.report }}`)
+            const publishReport = JSON.parse(process.env.PUBLISH_REPORT)
 
             for (const { name, version } of publishReport.publishedPackages) {
               const tag_name = `${name}@${version}`
