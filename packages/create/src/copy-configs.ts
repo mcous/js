@@ -29,7 +29,7 @@ export async function copyConfigs(
   return Promise.all(
     options.dependencyNames
       .flatMap((name) => configs[name] ?? [])
-      .map((url) => copyTemplate(directory, url)),
+      .map((dependencyUrl) => copyTemplate(directory, dependencyUrl)),
   )
 }
 

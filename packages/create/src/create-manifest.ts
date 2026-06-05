@@ -17,9 +17,7 @@ export async function createManifest(
 ): Promise<CreateResult> {
   const { author, repository, dependencyNames } = options
   const name = getProjectName(directory, options)
-  const versionTasks = [...dependencyNames].map((name) =>
-    fetchPackageVersions(name),
-  )
+  const versionTasks = [...dependencyNames].map((n) => fetchPackageVersions(n))
   const dependencyVersions = await Promise.all(versionTasks)
   const devDependencies = Object.fromEntries(dependencyVersions.flat())
   const existingManifest = await readManifest(directory)
