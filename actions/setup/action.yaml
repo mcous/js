@@ -13,6 +13,9 @@ inputs:
     default: '24'
   registry-url:
     description: Registry to configure for publish
+  cache:
+    description: Cache pnpm store
+    default: 'true'
   run-install:
     description: Run pnpm install
     default: 'true'
@@ -31,6 +34,6 @@ runs:
       if: ${{ inputs.setup-pnpm == 'true' }}
       uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       with:
-        cache: true
+        cache: ${{ inputs.cache }}
         standalone: ${{ inputs.setup-node != 'true' }}
         run_install: ${{ inputs.run-install }}
